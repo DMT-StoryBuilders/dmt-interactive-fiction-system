@@ -5,12 +5,16 @@ Door::Door() {
 	name = "";
 	description = "";
 	isAccessible = true;
+	roomOnePtr = NULL;
+	roomTwoPtr = NULL;
 }
 
 Door::Door(std::string nm, std::string desc, bool accessible) {
 	name = nm;
 	description = desc;
 	isAccessible = accessible;
+	roomOnePtr = NULL;
+	roomTwoPtr = NULL;
 }
 
 Door::Door(std::string nm, std::string desc, bool accessible, Room roomOne, Room roomTwo) {
@@ -21,20 +25,12 @@ Door::Door(std::string nm, std::string desc, bool accessible, Room roomOne, Room
 	roomTwoPtr = &roomTwo;
 }
 
-Door::Door(std::string nm, std::string desc, bool accessible, Room* roomOnePointer, Room* roomTwoPointer) {
+Door::Door(std::string nm, std::string desc, bool accessible, Room *roomOnePointer, Room *roomTwoPointer) {
 	name = nm;
 	description = desc;
 	isAccessible = accessible;
 	roomOnePtr = roomOnePointer;
 	roomTwoPtr = roomTwoPointer;
-}
-
-Door::Door(std::string nm, std::string desc, bool accessible, Room &roomOneAddress, Room &roomTwoAddress) {
-	name = nm;
-	description = desc;
-	isAccessible = accessible;
-	roomOnePtr = &roomOneAddress;
-	roomTwoPtr = &roomTwoAddress;
 }
 
 void Door::setName(std::string nm) {
@@ -53,25 +49,18 @@ void Door::setRoomOnePointer(Room roomOne) {
 	roomOnePtr = &roomOne;
 }
 
-void Door::setRoomOnePointer(Room* roomOnePointer) {
+void Door::setRoomOnePointer(Room *roomOnePointer) {
 	roomOnePtr = roomOnePointer;
-}
-
-void Door::setRoomOnePointer(Room & roomOneAddress) {
-	roomOnePtr = &roomOneAddress;
 }
 
 void Door::setRoomTwoPointer(Room roomTwo) {
 	roomTwoPtr = &roomTwo;
 }
 
-void Door::setRoomTwoPointer(Room * roomTwoPointer) {
+void Door::setRoomTwoPointer(Room *roomTwoPointer) {
 	roomTwoPtr = roomTwoPointer;
 }
 
-void Door::setRoomTwoPointer(Room & roomTwoAddress) {
-	roomTwoPtr = &roomTwoAddress;
-}
 
 std::string Door::getName() {
 	return name;

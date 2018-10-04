@@ -3,24 +3,31 @@
 #define DOOR_H	
 #include "Room.h"
 
+/* Class that represents a door, path, or any connector of two rooms.
+ * 
+ * Data members
+ * ______________________________________
+ * string name: stores the name of the door
+ * string description: stores the description of the door
+ * boolean isAccessible: stores the accesibility of the door (0 = not accessibile, 1 = accessible)
+ * pointer roomOne: stores the address of the first room connected to the door
+ * pointer roomTwo: stores the address of the second room connected to the door
+*/
 class Door {
 public:
 	Door();
 	Door(std::string nm, std::string desc, bool accessible);
 	Door(std::string nm, std::string desc, bool accessible, Room roomOne, Room roomTwo);
-	Door(std::string nm, std::string desc, bool accessible, Room* roomOnePointer, Room* roomTwoPointer);
-	Door(std::string nm, std::string desc, bool accessible, Room &roomOneAddress, Room &roomTwoAddress);
+	Door(std::string nm, std::string desc, bool accessible, Room *roomOnePointer, Room *roomTwoPointer);
 
 	void setName(std::string nm);
 	void setDescription(std::string desc);
 	void setIsAccessible(bool accessible);
 
 	void setRoomOnePointer(Room roomOne);
-	void setRoomOnePointer(Room* roomOnePointer);
-	void setRoomOnePointer(Room &roomOneAddress);
+	void setRoomOnePointer(Room *roomOnePointer);
 	void setRoomTwoPointer(Room roomTwo);
-	void setRoomTwoPointer(Room* roomTwoPointer);
-	void setRoomTwoPointer(Room &roomTwoAddress);
+	void setRoomTwoPointer(Room *roomTwoPointer);
 
 	std::string getName();
 	std::string getDescription();
@@ -32,7 +39,7 @@ private:
 	std::string name;
 	std::string description;
 	bool isAccessible;
-	Room* roomOnePtr;
-	Room* roomTwoPtr;
+	Room *roomOnePtr;
+	Room *roomTwoPtr;
 };
 #endif

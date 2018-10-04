@@ -26,18 +26,6 @@ void Room::setShortDescription(std::string shortDesc) {
 	shortDesecription = shortDesc;
 }
 
-/*
-void Room::addToDoorList(Door door) {
-	doorList.push_back(door);
-}
-*/
-
-/*
-void Room::addToDoorList(Door &doorAddress) {
-	doorList.push_back(&doorAddress);
-}
-*/
-
 std::string Room::getName() {
 	return name;
 }
@@ -50,6 +38,5 @@ std::string Room::getShortDescription() {
 	return shortDesecription;
 }
 
-Room::~Room()
-{
+Room::~Room() {
 }
