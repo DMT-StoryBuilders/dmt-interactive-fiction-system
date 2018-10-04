@@ -3,22 +3,20 @@
 #define ITEM_H	
 #include <string>
 
-/* Class that represents an item. Item could be anything creative.
- * Example: Key, Lockpicks, sword, note, etc.
+/* Class that represents an item.
+ * Ex) Key, lockpicks, sword, note, etc.
  * 
  * Data members
- * ______________________________
+ * ________________________________________
  * string name: stores the name of the item
- * string short description: stores the short description of the item
- * string long description: stores the long description of the item
+ * string short description: stores the short description of the item after initial encounter
+ * string long description: stores the long description of the item upon intial encounter
  * int durability: stores the durability of the item
  */
-
 class Item {
 public:
 	Item();
-	Item(std::string nm, std::string shortDesc);
-	Item(std::string nm, std::string longDesc);
+	Item(std::string nm, std::string desc);
 	Item(std::string nm, std::string shortDesc, std::string longDesc);
 	Item(std::string nm, std::string shortDesc, std::string longDesc, int hp);
 	

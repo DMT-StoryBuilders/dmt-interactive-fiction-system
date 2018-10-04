@@ -45,19 +45,19 @@ void Door::setIsAccessible(bool accessible) {
 	isAccessible = accessible;
 }
 
-void Door::setRoomOnePointer(Room roomOne) {
+void Door::setRoomOne(Room roomOne) {
 	roomOnePtr = &roomOne;
 }
 
-void Door::setRoomOnePointer(Room *roomOnePointer) {
+void Door::setRoomOne(Room *roomOnePointer) {
 	roomOnePtr = roomOnePointer;
 }
 
-void Door::setRoomTwoPointer(Room roomTwo) {
+void Door::setRoomTwo(Room roomTwo) {
 	roomTwoPtr = &roomTwo;
 }
 
-void Door::setRoomTwoPointer(Room *roomTwoPointer) {
+void Door::setRoomTwo(Room *roomTwoPointer) {
 	roomTwoPtr = roomTwoPointer;
 }
 
@@ -72,6 +72,14 @@ std::string Door::getDescription() {
 
 bool Door::getIsAccessible() {
 	return isAccessible;
+}
+
+Room * Door::getRoomOne() {
+	return roomOnePtr;
+}
+
+Room * Door::getRoomTwo() {
+	return roomTwoPtr;
 }
 
 Door::~Door()

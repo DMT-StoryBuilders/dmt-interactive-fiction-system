@@ -9,17 +9,10 @@ Item::Item() {
 	durability = 5;
 }
 
-Item::Item(std::string nm, std::string shortDesc) {
+Item::Item(std::string nm, std::string desc) {
 	name = nm;
-	shortDescription = shortDesc;
-	longDescription = "";
-	durability = 5;
-}
-
-Item::Item(std::string nm, std::string longDesc) {
-	name = nm;
-	shortDescription = shortDesc;
-	longDescription = "";
+	shortDescription = desc;
+	longDescription = desc;
 	durability = 5;
 }
 
