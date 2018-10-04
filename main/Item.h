@@ -1,4 +1,6 @@
 #pragma once
+#ifndef ITEM_H
+#define ITEM_H	
 #include <string>
 
 /* Class that represents an item. Item could be anything creative.
@@ -38,4 +40,4 @@ private:
 	std::string longDescription;
 	int durability;
 };
-
+#endif
