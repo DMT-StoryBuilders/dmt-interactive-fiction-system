@@ -24,7 +24,7 @@ public:
 	void setName(std::string nm);
 	void setDescription(std::string desc);
 	void setHealth(int hp);
-	void setCurrentRoom(Room room);
+	void setCurrentRoom(Room &room);
 	void setCurrentRoom(Room *roomPtr);
 
 	std::string getName();

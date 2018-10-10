@@ -9,7 +9,7 @@
  * ______________________________________
  * string name: stores the name of the door
  * string description: stores the description of the door
- * boolean isAccessible: stores the accesibility of the door (0 = not accessibile, 1 = accessible)
+ * boolean isAccessible: stores the accesibility of the door (0 = not accessible, 1 = accessible)
  * pointer roomOnePtr: stores the address of the first room connected to the door
  * pointer roomTwoPtr: stores the address of the second room connected to the door
 */
@@ -17,16 +17,16 @@ class Door {
 public:
 	Door();
 	Door(std::string nm, std::string desc, bool accessible);
-	Door(std::string nm, std::string desc, bool accessible, Room roomOne, Room roomTwo);
+	Door(std::string nm, std::string desc, bool accessible, Room &roomOne, Room &roomTwo);
 	Door(std::string nm, std::string desc, bool accessible, Room *roomOnePointer, Room *roomTwoPointer);
 
 	void setName(std::string nm);
 	void setDescription(std::string desc);
 	void setIsAccessible(bool accessible);
 
-	void setRoomOne(Room roomOne);
+	void setRoomOne(Room &roomOne);
 	void setRoomOne(Room *roomOnePointer);
-	void setRoomTwo(Room roomTwo);
+	void setRoomTwo(Room &roomTwo);
 	void setRoomTwo(Room *roomTwoPointer);
 
 	std::string getName();

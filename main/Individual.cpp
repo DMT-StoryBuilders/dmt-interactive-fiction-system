@@ -41,7 +41,7 @@ void Individual::setHealth(int hp) {
 	health = hp;
 }
 
-void Individual::setCurrentRoom(Room room) {
+void Individual::setCurrentRoom(Room &room) {
 	currentRoomPtr = &room;
 }
 
@@ -64,7 +64,6 @@ int Individual::getHealth() {
 Room * Individual::getCurrentRoom() {
 	return currentRoomPtr;
 }
-
 
 Individual::~Individual() {
 }

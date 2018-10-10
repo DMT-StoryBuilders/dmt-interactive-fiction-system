@@ -9,7 +9,7 @@ Room::Room() {
 }
 
 Room::Room(std::string nm, std::string longDesc, std::string shortDesc) {
-	name = name;
+	name = nm;
 	longDescription = longDesc;
 	shortDesecription = shortDesc;
 }
