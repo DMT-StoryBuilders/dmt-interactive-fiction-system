@@ -8,34 +8,34 @@ Room::Room() {
 	shortDesecription = "";
 }
 
-Room::Room(std::string nm, std::string longDesc, std::string shortDesc) {
+Room::Room(std::string nm, std::string shortDesc, std::string longDesc) {
 	name = nm;
-	longDescription = longDesc;
 	shortDesecription = shortDesc;
+	longDescription = longDesc;
 }
 
 void Room::setName(std::string nm) {
 	name = nm;
 }
 
-void Room::setLongDescription(std::string longDesc) {
-	longDescription = longDesc;
-}
-
 void Room::setShortDescription(std::string shortDesc) {
 	shortDesecription = shortDesc;
+}
+
+void Room::setLongDescription(std::string longDesc) {
+	longDescription = longDesc;
 }
 
 std::string Room::getName() {
 	return name;
 }
 
-std::string Room::getLongDescription() {
-	return longDescription;
-}
-
 std::string Room::getShortDescription() {
 	return shortDesecription;
+}
+
+std::string Room::getLongDescription() {
+	return longDescription;
 }
 
 Room::~Room() {

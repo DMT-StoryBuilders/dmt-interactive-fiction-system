@@ -33,24 +33,28 @@ void Player::use(Door *door) {
 	}//end if accessible
 }
 
-void Player::observe(Door door) {
-	std::cout << door.getDescription() << std::endl;
+void Player::observe(Door *doorPtr) {
+	std::cout << doorPtr->getDescription() << std::endl;
 }
 
-void Player::observe(Room room) {
-	std::cout << room.getShortDescription() << std::endl;
+void Player::observe(Room *roomPtr) {
+	std::cout << roomPtr->getShortDescription() << std::endl;
 }
 
-void Player::observe(Item item) {
-	std::cout << item.getShortDescription() << std::endl;
+void Player::observe(Item *itemPtr) {
+	std::cout << itemPtr->getShortDescription() << std::endl;
 }
 
-void Player::examine(Room room) {
-	std::cout << room.getLongDescription() << std::endl;
+void Player::examine(Door *doorPtr) {
+	std::cout << doorPtr->getDescription() << std::endl;
 }
 
-void Player::examine(Item item) {
-	std::cout << item.getLongDescription() << std::endl;
+void Player::examine(Room *roomPtr) {
+	std::cout << roomPtr->getLongDescription() << std::endl;
+}
+
+void Player::examine(Item *itemPtr) {
+	std::cout << itemPtr->getLongDescription() << std::endl;
 }
 
 Player::~Player() {

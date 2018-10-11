@@ -39,21 +39,21 @@ void createRoom(std::vector<Room> &rmList) {
 	std::cout << "____________________________________________________" << std::endl;
 	std::cout << "Room Creation" << std::endl;
 	std::string name;
-	std::string longDesc;
 	std::string shortDesc;
+	std::string longDesc;
 
 	std::cout << "\nEnter the name of the room: " << std::endl;
 	std::getline (std::cin, name);
 	std::getline(std::cin, name);
 
-	std::cout << "\nEnter a long description of the room: " << std::endl;
-	std::getline(std::cin, longDesc);
-
 	std::cout << "\nEnter a short description of the room: " << std::endl;
 	std::getline(std::cin, shortDesc);
 
+	std::cout << "\nEnter a long description of the room: " << std::endl;
+	std::getline(std::cin, longDesc);
+
 	// Create the room and add it to the end of the room list
-	Room newRoom(name, longDesc, shortDesc);
+	Room newRoom(name, shortDesc, longDesc);
 	rmList.push_back(newRoom);
 
 	// Confirm that the room was created and display the number of created rooms

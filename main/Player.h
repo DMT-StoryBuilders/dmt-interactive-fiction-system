@@ -22,14 +22,15 @@ public:
 	Player(std::string nm, std::string desc, Room *roomPtr);
 	Player(std::string nm, std::string desc, int hp, Room *roomPtr);
 
-	void use(Door *door);
+	void use(Door *doorPtr);
 
-	void observe(Door door);
-	void observe(Room room);
-	void observe(Item item);
+	void observe(Door *doorPtr);
+	void observe(Room *roomPtr);
+	void observe(Item *itemPtr);
 
-	void examine(Room room);
-	void examine(Item item);
+	void examine(Door *doorPtr);
+	void examine(Room *roomPtr);
+	void examine(Item *itemPtr);
 
 	~Player();
 };
