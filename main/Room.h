@@ -15,21 +15,21 @@
 class Room {
 public:
 	Room();
-	Room(std::string nm, std::string longDesc, std::string shortDesc);
+	Room(std::string nm, std::string shortDesc, std::string longDesc);
 
 	void setName(std::string nm);
-	void setLongDescription(std::string longDesc);
 	void setShortDescription(std::string shortDesc);
+	void setLongDescription(std::string longDesc);
 	 
 	std::string getName();
-	std::string getLongDescription();
 	std::string getShortDescription();
+	std::string getLongDescription();
 
 	~Room();
 
 private:
 	std::string name;
-	std::string longDescription;
 	std::string shortDesecription;
+	std::string longDescription;
 };
 #endif
