@@ -1,8 +1,20 @@
 #include <string>
 #include <iostream>
 #include <vector>
-#include "pch.h"
-#include "stringReader.h"
+
+void stringBreaker(std::vector <std::string> &stringWords, std::string inputString);
+
+std::vector <std::string> actionWordBank;
+
+int main()
+{
+	int stopper;
+	std::vector <std::string> stringInputArray; //stores the words from the Input string
+	std::string Inputstring = "using my gold sword I attack the door ";
+
+	stringBreaker(stringInputArray, Inputstring);
+	std::cin >> stopper;
+}
 
 void stringBreaker(std::vector <std::string> &stringWords, std::string inputString) //Breaks up the Input into a arrays of string words
 {
