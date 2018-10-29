@@ -16,12 +16,12 @@ void operateCreateMenu(std::vector<Room> &rmList, std::vector<Door> &drList);
 /* Function that creates a room based on the information
  * provided by the user. The created room is then added
  * to the end of the room list.
-*/
+ */
 void createRoom(std::vector<Room> &rmList);
 
 /* Function that creates a door based on the information
  * provided by the user. The created door is then added
  * to the end of the door list.
-*/
+ */
 void createDoor(std::vector<Room> &rmList, std::vector<Door> &drList);
 #endif
