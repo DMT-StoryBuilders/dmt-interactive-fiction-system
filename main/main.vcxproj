@@ -160,7 +160,6 @@
     <ClInclude Include="playFunctions.h" />
     <ClInclude Include="Room.h" />
     <ClInclude Include="stringReader.h" />
-    <ClInclude Include="Weapon.h" />
     <ClInclude Include="writingTools.h" />
   </ItemGroup>
   <ItemGroup>
@@ -179,7 +178,6 @@
     <ClCompile Include="playFunctions.cpp" />
     <ClCompile Include="Room.cpp" />
     <ClCompile Include="stringReader.cpp" />
-    <ClCompile Include="Weapon.cpp" />
     <ClCompile Include="writingTools.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
