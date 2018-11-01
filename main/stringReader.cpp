@@ -14,8 +14,13 @@ void stringBreaker(std::string inputString, std::vector<Room> &rmList, std::vect
 
 	std::string tempNewWords;
 	std::string userInput = inputString;	
+
 	userInput += " ";
-	std::cout << userInput;
+	
+	//std::cout << userInput;
+	
+
+
 
 	int vectorWordsCounter = 0;
 	int stringCoutnerCharacter = 0;
@@ -36,13 +41,13 @@ void stringBreaker(std::string inputString, std::vector<Room> &rmList, std::vect
 		{
 			stringWords.push_back(tempNewWords);
 			vectorWordsCounter++;
-			std::cout << tempNewWords << std::endl;
+			// std::cout << tempNewWords << std::endl;
 			tempNewWords = "";
 		}
 
 	}//End of the for loop
 
-	stringFindAction(stringWords,rmList,drList);
+	stringFindAction(userInput, stringWords,rmList,drList);
 }
 
 
@@ -51,7 +56,7 @@ void stringBreaker(std::string inputString, std::vector<Room> &rmList, std::vect
 
 
 
-void stringFindAction(std::vector <std::string> &stringWords, std::vector<Room> &rmList, std::vector<Door> &drList) // FIND the action word in the string 
+void stringFindAction(std::string userInput, std::vector <std::string> &stringWords, std::vector<Room> &rmList, std::vector<Door> &drList) // FIND the action word in the string 
 {
 	/*Using bool we will find out what the user input is trying to say.
 	Based on what bools and words are used the action taken will be determined
@@ -60,44 +65,99 @@ void stringFindAction(std::vector <std::string> &stringWords, std::vector<Room> 
 	bool wordInteractingFound Checks for any words that might mean the player is Interactioning with something
 	*/
 
+	int currentRoom = 0;
+	int currentDoor;
+	int foundRoom = -1;
+	int foundDoor = -1;
+	int roomNumber = -1;
+
 	bool wordAttackingFound = false; //True if found an attack word
 	bool wordSearchingFound = false; // True if found an searching word
 	bool wordInteractingFound = false;
 	bool wordDoorFound = false;
-	int stopper = 0;
 	bool wordItemFound = false;
+	int stopper = 0;
+
+
+	for (int i = 0; i < drList.size(); i++)
+	{
+		std::string Doorname;
+		Doorname = drList.at(i).getName(); 
+		foundDoor = userInput.find(Doorname);
+		if (foundDoor > 0) 
+		{
+			currentDoor = i;
+			std::cout << "Found the door called:" << Doorname;
+		}
+	}
+
+	for (int j = 0; j < rmList.size(); j++)
+	{
+
+		std::string roomName;
+
+		roomName = rmList.at(j).getName();
+
+		int foundRoom = userInput.find(roomName);
+		roomNumber = j;
+		if (foundRoom > 0)
+
+		{
+			currentRoom = foundRoom;
+			std::cout << "Found the room called: " << roomName;
+			std::cout << std::endl;
+			std::cout << " number " << roomNumber;
+			
+		}
+	}
+	std::cout << std::endl;
 
 	for (int x = 0; x < stringWords.size(); x++)
 	{
+
 		if (stringWords.at(x) == "ATTACK" || stringWords.at(x) == "ATTACKED" || stringWords.at(x) == "ATTACKING")
 		{
-			std::cout<< " attacking " << std::endl;
+			std::cout<< " attacking ";
 			wordAttackingFound = true;
 		}
-		if (stringWords.at(x) == "DOOR")
+		
+		if (stringWords.at(x) == "USE")
 		{
-			std::cout << std::endl << "the door " << std::endl;
+			std::cout << "the door ";
 			wordDoorFound = true;
 		}
 		if (stringWords.at(x) == "ITEM")
 		{
-			std::cout << std::endl << " using the item " << std::endl;
+			std::cout << " using/with the item ";
 			wordItemFound = true;
 		}
 		if (stringWords.at(x) == "LOOK")
 		{
-			std::cout << std::endl << " looking at " << std::endl;
+			std::cout << " looking at ";
 			wordSearchingFound = true;
+
 		}
 		if (stringWords.at(x) == "LEVER")
 		{
-			std::cout << std::endl << "found interactions word " << std::endl;
+			std::cout << "found interactions word ";
 			wordInteractingFound = true;
 		}
+		std::cout << std::endl;
 	}
 	
-//_________________________________________________________________________________
+	std::cout << "  " << roomNumber << std::endl;
+	if (wordSearchingFound == true && roomNumber >= 0)
+	{
+		std::cout << "As you look around you find : ";
+		rmList.at(roomNumber).getLongDescription();
+		std::cout << rmList.at(roomNumber).getLongDescription() << std::endl ;
+	}
 
+	if (wordInteractingFound == false && wordSearchingFound == false && wordItemFound == false && wordDoorFound == false && wordAttackingFound == false)
+	{
+		std::cout << std::endl << "I HAVE NO IDEA WHAT YOU ARE SAYING BRAIN " << std::endl << " ";
+	}
+	
 }
 
 
