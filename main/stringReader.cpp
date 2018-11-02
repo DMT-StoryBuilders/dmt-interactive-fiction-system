@@ -9,7 +9,6 @@
 
 void stringBreaker(Player &player, std::string inputString, std::vector<Room> &rmList, std::vector<Door> &drList) //Breaks up the Input into a arrays of string words
 {
-
 	std::vector <std::string> stringWords;
 
 	std::string tempNewWords;
@@ -23,17 +22,13 @@ void stringBreaker(Player &player, std::string inputString, std::vector<Room> &r
 	char currentcharacter = ' ';
 
 	int wordFindFound = 0;
-
 	
-	for (int stringCoutnerCharacter = 0; stringCoutnerCharacter < userInput.length(); stringCoutnerCharacter++)
-	{
-		if (toupper(userInput.at(stringCoutnerCharacter)) == 'A' || toupper(userInput.at(stringCoutnerCharacter)) == 'B' || toupper(userInput.at(stringCoutnerCharacter)) == 'C' || toupper(userInput.at(stringCoutnerCharacter)) == 'D' || toupper(userInput.at(stringCoutnerCharacter)) == 'E' || toupper(userInput.at(stringCoutnerCharacter)) == 'F' || toupper(userInput.at(stringCoutnerCharacter)) == 'G' || toupper(userInput.at(stringCoutnerCharacter)) == 'H' || toupper(userInput.at(stringCoutnerCharacter)) == 'I' || toupper(userInput.at(stringCoutnerCharacter)) == 'J' || toupper(userInput.at(stringCoutnerCharacter)) == 'K' || toupper(userInput.at(stringCoutnerCharacter)) == 'L' || toupper(userInput.at(stringCoutnerCharacter)) == 'M' || toupper(userInput.at(stringCoutnerCharacter)) == 'N' || toupper(userInput.at(stringCoutnerCharacter)) == 'O' || toupper(userInput.at(stringCoutnerCharacter)) == 'P' || toupper(userInput.at(stringCoutnerCharacter)) == 'Q' || toupper(userInput.at(stringCoutnerCharacter)) == 'R' || toupper(userInput.at(stringCoutnerCharacter)) == 'S' || toupper(userInput.at(stringCoutnerCharacter)) == 'T' || toupper(userInput.at(stringCoutnerCharacter)) == 'U' || toupper(userInput.at(stringCoutnerCharacter)) == 'V' || toupper(userInput.at(stringCoutnerCharacter)) == 'W' || toupper(userInput.at(stringCoutnerCharacter)) == 'S' || toupper(userInput.at(stringCoutnerCharacter)) == 'W' || toupper(userInput.at(stringCoutnerCharacter)) == 'X' || toupper(userInput.at(stringCoutnerCharacter)) == 'Y' || toupper(userInput.at(stringCoutnerCharacter) == 'Z'))	
-		{
+	for (int stringCoutnerCharacter = 0; stringCoutnerCharacter < userInput.length(); stringCoutnerCharacter++) {
+		if (toupper(userInput.at(stringCoutnerCharacter)) == 'A' || toupper(userInput.at(stringCoutnerCharacter)) == 'B' || toupper(userInput.at(stringCoutnerCharacter)) == 'C' || toupper(userInput.at(stringCoutnerCharacter)) == 'D' || toupper(userInput.at(stringCoutnerCharacter)) == 'E' || toupper(userInput.at(stringCoutnerCharacter)) == 'F' || toupper(userInput.at(stringCoutnerCharacter)) == 'G' || toupper(userInput.at(stringCoutnerCharacter)) == 'H' || toupper(userInput.at(stringCoutnerCharacter)) == 'I' || toupper(userInput.at(stringCoutnerCharacter)) == 'J' || toupper(userInput.at(stringCoutnerCharacter)) == 'K' || toupper(userInput.at(stringCoutnerCharacter)) == 'L' || toupper(userInput.at(stringCoutnerCharacter)) == 'M' || toupper(userInput.at(stringCoutnerCharacter)) == 'N' || toupper(userInput.at(stringCoutnerCharacter)) == 'O' || toupper(userInput.at(stringCoutnerCharacter)) == 'P' || toupper(userInput.at(stringCoutnerCharacter)) == 'Q' || toupper(userInput.at(stringCoutnerCharacter)) == 'R' || toupper(userInput.at(stringCoutnerCharacter)) == 'S' || toupper(userInput.at(stringCoutnerCharacter)) == 'T' || toupper(userInput.at(stringCoutnerCharacter)) == 'U' || toupper(userInput.at(stringCoutnerCharacter)) == 'V' || toupper(userInput.at(stringCoutnerCharacter)) == 'W' || toupper(userInput.at(stringCoutnerCharacter)) == 'S' || toupper(userInput.at(stringCoutnerCharacter)) == 'W' || toupper(userInput.at(stringCoutnerCharacter)) == 'X' || toupper(userInput.at(stringCoutnerCharacter)) == 'Y' || toupper(userInput.at(stringCoutnerCharacter) == 'Z')){
 			tempNewWords += toupper(userInput.at(stringCoutnerCharacter));
 		}
 
-		else
-		{
+		else {
 			transform(tempNewWords.begin(), tempNewWords.end(), tempNewWords.begin(), ::toupper);
 			stringWords.push_back(tempNewWords);
 			vectorWordsCounter++;
@@ -41,7 +36,6 @@ void stringBreaker(Player &player, std::string inputString, std::vector<Room> &r
 		}
 
 	}//End of the for loop
-
 	stringFindAction(player, userInput, stringWords,rmList,drList);
 }
 
@@ -52,7 +46,6 @@ void stringBreaker(Player &player, std::string inputString, std::vector<Room> &r
 	bool wordSearchingFound Checks for any words that might mean the player is seaching for something
 	bool wordInteractingFound Checks for any words that might mean the player is Interactioning with something
 */
-
 void stringFindAction(Player &player, std::string userInput, std::vector <std::string> &stringWords, std::vector<Room> &rmList, std::vector<Door> &drList) // FIND the action word in the string 
 {
 	int currentRoom = -1;
@@ -80,12 +73,10 @@ void stringFindAction(Player &player, std::string userInput, std::vector <std::s
 
 	transform(userInput.begin(), userInput.end(), userInput.begin(), ::toupper);
 
-
 	int stopper = 0;
 
 	for (int i = 0; i < drList.size(); i++) // Checking the name of door was used
 	{
-		
 		doorName = ( drList.at(i).getName() ); 
 		transform(doorName.begin(), doorName.end(), doorName.begin(), ::toupper);
 		doorNumber = i;
@@ -115,12 +106,10 @@ void stringFindAction(Player &player, std::string userInput, std::vector <std::s
 		roomNumber = j;
 		roomNameLength = rmList.at(j).getName().size();
 
-
 		if (foundRoom > -1)
 		{
 			roomNameChecker = userInput.substr(foundRoom, foundRoom + roomNameLength);
 			transform(roomNameChecker.begin(), roomNameChecker.end(), roomNameChecker.begin(), ::toupper);
-
 		}
 
 		if (foundRoom > -1 && roomName.compare(roomNameChecker))
@@ -131,8 +120,6 @@ void stringFindAction(Player &player, std::string userInput, std::vector <std::s
 		foundRoom = -1;
 		roomName = "No room found";
 	}
-
-	std::cout << std::endl;
 
 	for (int x = 0; x < stringWords.size(); x++)// The loop that looks for action words
 	{
@@ -175,23 +162,17 @@ void stringFindAction(Player &player, std::string userInput, std::vector <std::s
 	if (wordUseFound == true && inputHasDoor == true) // using a door
 	{
 		player.use(&drList[currentDoor]);
-		std::cout << std::endl;
+		std::cout << "______________________________________________" << std::endl;
 		std::cout << player.getCurrentRoom()->getName() << std::endl;
-		std::cout << player.getCurrentRoom()->getShortDescription();
-		std::cout << std::endl << "______________________________________________" << std::endl;
-		std::cout << std::endl;
-		std::cout << std::endl;
+		std::cout << player.getCurrentRoom()->getShortDescription() << std::endl;
 	}
 
-	if (wordSearchingFound == true && inputHasRoom == true)
-	{
+	if (wordSearchingFound == true && inputHasRoom == true) {
 		player.examine(&rmList.at(currentRoom));
 	}
 
-	if (wordLookingFound == true && inputHasRoom == true)
-	{
+	if (wordLookingFound == true && inputHasRoom == true) {
 		player.observe(&rmList.at(currentRoom));
-
 	}
 
 	if (wordLookingFound == false && wordInteractingFound == false && wordSearchingFound == false && wordItemFound == false && wordUseFound == false && wordAttackingFound == false)
@@ -199,33 +180,8 @@ void stringFindAction(Player &player, std::string userInput, std::vector <std::s
 
 	}
 
+	std::cout << "\n> ";
 	/*
-	std::cout << std::endl << std::endl;
-	std::cout << "Debug: a word was found    ___ user input was " << userInput;
-	std::cout << std::endl;
-
-	
-	for (int k = 0; k < rmList.size(); k++)
-	{
-		std::cout << std::endl << rmList.at(k).getName();
-	}
-
-	
-	std::cout << std::endl << " has founded looking key word: " << wordLookingFound;
-	std::cout << std::endl << " has founded look key word: " << wordSearchingFound;
-	std::cout << std::endl << " has founded has door? " << inputHasDoor;
-	std::cout << std::endl << " has founded has room? = " << inputHasRoom;
-	std::cout << std::endl << " what is door vector vaule  " << doorNumber;
-	std::cout << std::endl << "roomName = " << roomName << std::endl;
-	std::cout << std::endl << "Room name checker " << roomNameChecker << std::endl;
-	std::cout << std::endl << "Door name checker " << doorNameChecker << std::endl;
-	std::cout << std::endl << "roomname " << roomName;
-	std::cout << std::endl << "doorname " << doorName;
-	std::cout << std::endl << "current Room number " << currentRoom;
-	std::cout << std::endl << "current Room number " << currentDoor;
-	std::cout << std::endl << "current Room number " << wordUseFound;
-	*/
-
 	currentRoom = -1;
 	currentDoor = -1;
 	foundRoom = -1;
@@ -245,8 +201,7 @@ void stringFindAction(Player &player, std::string userInput, std::vector <std::s
 	roomName = "";
 	doorNameChecker = "";
 	roomNameChecker = "";
-	std::cout << std::endl << "> ";
-
+	*/
 }
 
 
