@@ -34,27 +34,27 @@ void Player::use(Door *door) {
 }
 
 void Player::observe(Door *doorPtr) {
-	std::cout << doorPtr->getDescription() << std::endl;
+	std::cout << "\n" << doorPtr->getDescription() << std::endl;
 }
 
 void Player::observe(Room *roomPtr) {
-	std::cout << roomPtr->getShortDescription() << std::endl;
+	std::cout << "\n" << roomPtr->getShortDescription() << std::endl;
 }
 
 void Player::observe(Item *itemPtr) {
-	std::cout << itemPtr->getShortDescription() << std::endl;
+	std::cout << "\n" << itemPtr->getShortDescription() << std::endl;
 }
 
 void Player::examine(Door *doorPtr) {
-	std::cout << doorPtr->getDescription() << std::endl;
+	std::cout << "\n" << doorPtr->getDescription() << std::endl;
 }
 
 void Player::examine(Room *roomPtr) {
-	std::cout << roomPtr->getLongDescription() << std::endl;
+	std::cout << "\n" << roomPtr->getLongDescription() << std::endl;
 }
 
 void Player::examine(Item *itemPtr) {
-	std::cout << itemPtr->getLongDescription() << std::endl;
+	std::cout << "\n" << itemPtr->getLongDescription() << std::endl;
 }
 
 Player::~Player() {
