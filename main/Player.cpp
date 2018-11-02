@@ -22,38 +22,48 @@ Player::Player(std::string nm, std::string desc, int hp, Room * roomPtr) : Indiv
  * If the player's address is the same as room one's address, change the player's
  * address to room two's address, nnd vice versa.
  */
-void Player::use(Door *door) {
-	if (door->getIsAccessible() == true) {
-		if (getCurrentRoom() == door->getRoomOne()) {
+void Player::use(Door *door) 
+{
+	if (door->getIsAccessible() == true)
+	{
+		if (getCurrentRoom() == door->getRoomOne())
+		{
 			setCurrentRoom(door->getRoomTwo());
 		}
-		else if (getCurrentRoom() == door->getRoomTwo()) {
+		else if (getCurrentRoom() == door->getRoomTwo())
+		{
 			setCurrentRoom(door->getRoomOne());
 		}
 	}//end if accessible
 }
 
-void Player::observe(Door *doorPtr) {
+void Player::observe(Door *doorPtr) 
+{
 	std::cout << doorPtr->getDescription() << std::endl;
 }
 
-void Player::observe(Room *roomPtr) {
+void Player::observe(Room *roomPtr) 
+{
 	std::cout << roomPtr->getShortDescription() << std::endl;
 }
 
-void Player::observe(Item *itemPtr) {
+void Player::observe(Item *itemPtr)
+{
 	std::cout << itemPtr->getShortDescription() << std::endl;
 }
 
-void Player::examine(Door *doorPtr) {
+void Player::examine(Door *doorPtr) 
+{
 	std::cout << doorPtr->getDescription() << std::endl;
 }
 
-void Player::examine(Room *roomPtr) {
+void Player::examine(Room *roomPtr) 
+{
 	std::cout << roomPtr->getLongDescription() << std::endl;
 }
 
-void Player::examine(Item *itemPtr) {
+void Player::examine(Item *itemPtr) 
+{
 	std::cout << itemPtr->getLongDescription() << std::endl;
 }
 

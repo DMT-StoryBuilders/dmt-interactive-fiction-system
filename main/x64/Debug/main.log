@@ -1,4 +1,5 @@
 ﻿  stringReader.cpp
-c:\users\nuria-age\documents\dtm_textengine\dmt-interactive-fiction-system\main\main\stringreader.cpp(86): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-c:\users\nuria-age\documents\dtm_textengine\dmt-interactive-fiction-system\main\main\stringreader.cpp(101): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+c:\users\nuria-age\documents\dtm_textengine\dmt-interactive-fiction-system\main\main\stringreader.cpp(89): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+c:\users\nuria-age\documents\dtm_textengine\dmt-interactive-fiction-system\main\main\stringreader.cpp(111): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+c:\users\nuria-age\documents\dtm_textengine\dmt-interactive-fiction-system\main\main\stringreader.cpp(113): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
   main.vcxproj -> C:\Users\nuria-age\Documents\DTM_TextEngine\dmt-interactive-fiction-system\main\main\x64\Debug\main.exe
