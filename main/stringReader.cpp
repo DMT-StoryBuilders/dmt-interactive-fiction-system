@@ -181,9 +181,6 @@ void stringFindAction(Player &player, std::string userInput, std::vector <std::s
 		std::cout << std::endl << "______________________________________________" << std::endl;
 		std::cout << std::endl;
 		std::cout << std::endl;
-		std::cout << "> ";
-
-	
 	}
 
 	if (wordSearchingFound == true && inputHasRoom == true)
@@ -194,25 +191,11 @@ void stringFindAction(Player &player, std::string userInput, std::vector <std::s
 	if (wordLookingFound == true && inputHasRoom == true)
 	{
 		player.observe(&rmList.at(currentRoom));
+
 	}
 
 	if (wordLookingFound == false && wordInteractingFound == false && wordSearchingFound == false && wordItemFound == false && wordUseFound == false && wordAttackingFound == false)
 	{
-		std::cout << std::endl << " umm what? lets get the debug and find out what happened";
-		std::cout << std::endl;
-		std::cout << "Debug: ";
-		std::cout << std::endl << " has founded looking key word: " << wordLookingFound;
-		std::cout << std::endl << " has founded searching key word: " << wordSearchingFound;
-		std::cout << std::endl << " has founded has door? " << inputHasDoor;
-		std::cout << std::endl << " has founded has room? = " << inputHasRoom;
-		std::cout << std::endl << " what is door vector vaule  " << doorNumber;
-		std::cout << std::endl << "roomName = " << roomName << std::endl;
-		std::cout << std::endl << "Room name checker " << roomNameChecker << std::endl;
-		std::cout << std::endl << "Door name checker " << doorNameChecker << std::endl;
-		std::cout << std::endl << "roomname " << roomName;
-		std::cout << std::endl << "doorname " << doorName;
-		std::cout << std::endl << "current Room number " << currentRoom;
-		std::cout << std::endl << "current Room number " << currentDoor;
 
 	}
 
@@ -262,6 +245,7 @@ void stringFindAction(Player &player, std::string userInput, std::vector <std::s
 	roomName = "";
 	doorNameChecker = "";
 	roomNameChecker = "";
+	std::cout << std::endl << "> ";
 
 }
 

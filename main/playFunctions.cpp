@@ -17,7 +17,7 @@ void startGame(std::vector<Room> &rmList, std::vector<Door> &drList)
 	std::cout << player.getCurrentRoom()->getShortDescription() << std::endl; // Usinig pointers display the player room
 
 	
-	std::cout << "\n> ";
+	std::cout << "\n ";
 	std::cout << "> ";
 
 	getline(std::cin, action);
@@ -29,7 +29,6 @@ void startGame(std::vector<Room> &rmList, std::vector<Door> &drList)
 
 		stringBreaker(player, action, rmList, drList); //Breaks up the Input into a arrays of string words
 		getline(std::cin, action);
-		std::cout << "> ";
 	
 	}
 
