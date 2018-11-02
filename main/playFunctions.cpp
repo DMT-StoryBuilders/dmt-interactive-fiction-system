@@ -18,8 +18,8 @@ void startGame(std::vector<Room> &rmList, std::vector<Door> &drList)
 
 	
 	std::cout << "\n> ";
-	
-	std::cout << "What should I do?" << std::endl;
+	std::cout << "> ";
+
 	getline(std::cin, action);
 	getline(std::cin, action);//user input
 
@@ -28,10 +28,9 @@ void startGame(std::vector<Room> &rmList, std::vector<Door> &drList)
 	{
 
 		stringBreaker(player, action, rmList, drList); //Breaks up the Input into a arrays of string words
-		std::cout << std::endl << "What should I do?" << std::endl;
 		getline(std::cin, action);
-		std::cout << std::endl;
-		std::cout << std::endl;
+		std::cout << "> ";
+	
 	}
 
 
