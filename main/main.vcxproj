@@ -153,6 +153,8 @@
   <ItemGroup>
     <ClInclude Include="Container.h" />
     <ClInclude Include="Door.h" />
+    <ClInclude Include="exportWorld.h" />
+    <ClInclude Include="importWorld.h" />
     <ClInclude Include="Individual.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="pch.h" />
@@ -160,11 +162,14 @@
     <ClInclude Include="playFunctions.h" />
     <ClInclude Include="Room.h" />
     <ClInclude Include="stringReader.h" />
+    <ClInclude Include="tinyxml2.h" />
     <ClInclude Include="writingTools.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Container.cpp" />
     <ClCompile Include="Door.cpp" />
+    <ClCompile Include="exportWorld.cpp" />
+    <ClCompile Include="importWorld.cpp" />
     <ClCompile Include="Individual.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="main.cpp" />
@@ -178,6 +183,7 @@
     <ClCompile Include="playFunctions.cpp" />
     <ClCompile Include="Room.cpp" />
     <ClCompile Include="stringReader.cpp" />
+    <ClCompile Include="tinyxml2.cpp" />
     <ClCompile Include="writingTools.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -61,7 +61,7 @@ int Individual::getHealth() {
 	return health;
 }
 
-Room * Individual::getCurrentRoom() {
+Room* Individual::getCurrentRoom() {
 	return currentRoomPtr;
 }
 
