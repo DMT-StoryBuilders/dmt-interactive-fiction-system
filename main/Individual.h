@@ -3,6 +3,7 @@
 #define INDIVIDUAL_H
 #include <string>
 #include "Room.h"
+#include "Item.h"
 
 /* Class that represents an individual/character.
  * Ex) Friendly merchant, goblin fighter, dragon, etc.
@@ -17,6 +18,7 @@
 class Individual {
 public:
 	Individual();
+	Individual(std::string nm);
 	Individual(std::string nm, Room *roomPtr);
 	Individual(std::string nm, std::string desc, Room *roomPtr);
 	Individual(std::string nm, std::string desc, int hp, Room *roomPtr);
@@ -27,11 +29,21 @@ public:
 	void setCurrentRoom(Room &room);
 	void setCurrentRoom(Room *roomPtr);
 
+	unsigned int i;
+
 	std::string getName();
 	std::string getDescription();
 	int getHealth();
 	Room* getCurrentRoom();
+	int getInventorySize();
+	Item* getItem(int i);
 
+	void addHealth(int i);
+	void addItem(Item* item);
+	void removeItem(int i);
+	void clearItems();
+	void printItems();
+	
 	~Individual();
 
 protected:
@@ -39,5 +51,6 @@ protected:
 	std::string description;
 	int health;
 	Room* currentRoomPtr;
+	std::vector <Item*> inventory;
 };
 #endif

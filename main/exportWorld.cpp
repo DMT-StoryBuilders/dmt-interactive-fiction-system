@@ -1,4 +1,3 @@
-#include "pch.h"
 #include "exportWorld.h"
 
 void createDocument(std::vector<Room>& rmList, std::vector<Door>& drList) {
@@ -6,19 +5,18 @@ void createDocument(std::vector<Room>& rmList, std::vector<Door>& drList) {
 
 	std::cout << "____________________________________________________" << std::endl;
 	std::cout << "World Export" << std::endl;
-	std::cout << "\nEnter a path for the save location. Please include an extra backslash for every backslash in the path.\n"
-		<< "\nEx) The following input\nC:\\\\Users\\\\Username\\\\Documents\\\\mySavedWorld.xml"
-		<< "\nwill be read as\nC:\\Users\\Username\\Documents\\mySavedWorld.xml"
+	std::cout << "\nEnter a path for the save location.\n"
+		<< "\nWindows Ex) C:\\Users\\Username\\Documents\\mySavedWorld.xml"
 		<< "\n\nPath: ";
 
 	std::cin >> savePath;
 
 	/* Because tinyxml2's file saving function only take in a character array
-	 * for the file path, 
+	 * for the file path,
 	 * the contents of the string must be stored in a char array.
 	 */
 	char savePathChars[80];
-	strcpy_s(savePathChars, savePath.c_str());
+	strcpy(savePathChars, savePath.c_str());
 
 	tinyxml2::XMLDocument worldDocument;
 	tinyxml2::XMLNode* worldNodePtr = worldDocument.NewElement("world");
@@ -47,7 +45,7 @@ void createRoomElements(tinyxml2::XMLDocument &worldDoc, tinyxml2::XMLNode* wNod
 		// Store the characters of the room's name in a char array.
 		// Store the contents of the char array in the name element.
 		dataString = rmList[i].getName();
-		strcpy_s(dataChars, dataString.c_str());
+		strcpy(dataChars, dataString.c_str());
 		dataElementPtr->SetText(dataChars);
 
 		// Insert the name element into the room element
@@ -57,9 +55,9 @@ void createRoomElements(tinyxml2::XMLDocument &worldDoc, tinyxml2::XMLNode* wNod
 		dataElementPtr = worldDoc.NewElement("shortDescription");
 
 		// Store the characters of the room's short description in a char array.
-		// Store the contents of the char array in the shortDescription element. 
+		// Store the contents of the char array in the shortDescription element.
 		dataString = rmList[i].getShortDescription();
-		strcpy_s(dataChars, dataString.c_str());
+		strcpy(dataChars, dataString.c_str());
 		dataElementPtr->SetText(dataChars);
 
 		// Insert the short description element into the room element
@@ -69,9 +67,9 @@ void createRoomElements(tinyxml2::XMLDocument &worldDoc, tinyxml2::XMLNode* wNod
 		dataElementPtr = worldDoc.NewElement("longDescription");
 
 		// Store the characters of the room's short description in a char array.
-		// Store the contents of the char array in the shortDescription element. 
+		// Store the contents of the char array in the shortDescription element.
 		dataString = rmList[i].getLongDescription();
-		strcpy_s(dataChars, dataString.c_str());
+		strcpy(dataChars, dataString.c_str());
 		dataElementPtr->SetText(dataChars);
 
 		// Insert the long description element into the room element
@@ -97,11 +95,11 @@ void createDoorElements(tinyxml2::XMLDocument &worldDoc, tinyxml2::XMLNode* wNod
 
 		// Create a name element for the door element
 		dataElementPtr = worldDoc.NewElement("name");
-		
+
 		// Store the characters of the door's name in a char array.
 		// Store the contents of the char array in the name element.
 		dataString = drList[i].getName();
-		strcpy_s(dataChars, dataString.c_str());
+		strcpy(dataChars, dataString.c_str());
 		dataElementPtr->SetText(dataChars);
 
 		// Insert the name element into the door element
@@ -113,7 +111,7 @@ void createDoorElements(tinyxml2::XMLDocument &worldDoc, tinyxml2::XMLNode* wNod
 		// Store the characters of the door's description in a char array.
 		// Store the contents of the char array in the descripton element.
 		dataString = drList[i].getDescription();
-		strcpy_s(dataChars, dataString.c_str());
+		strcpy(dataChars, dataString.c_str());
 		dataElementPtr->SetText(dataChars);
 
 		// Insert the description element into the door element
@@ -121,7 +119,7 @@ void createDoorElements(tinyxml2::XMLDocument &worldDoc, tinyxml2::XMLNode* wNod
 
 		// Create an accessibility element for the door
 		dataElementPtr = worldDoc.NewElement("accessible");
-		
+
 		// Store the door's accessibility into the corresponding element.
 		dataElementPtr->SetText(drList[i].getIsAccessible());
 
@@ -134,7 +132,7 @@ void createDoorElements(tinyxml2::XMLDocument &worldDoc, tinyxml2::XMLNode* wNod
 		// Store the characters of the room one's name in a char array.
 		// Store the contents of the char array in the descripton element.
 		dataString = drList[i].getRoomOne()->getName();
-		strcpy_s(dataChars, dataString.c_str());
+		strcpy(dataChars, dataString.c_str());
 		dataElementPtr->SetText(dataChars);
 
 		// Insert the room one element into the door element.
@@ -146,7 +144,7 @@ void createDoorElements(tinyxml2::XMLDocument &worldDoc, tinyxml2::XMLNode* wNod
 		// Store the characters of the room one's name in a char array.
 		// Store the contents of the char array in the descripton element.
 		dataString = drList[i].getRoomTwo()->getName();
-		strcpy_s(dataChars, dataString.c_str());
+		strcpy(dataChars, dataString.c_str());
 		dataElementPtr->SetText(dataChars);
 
 		// Insert the room element into the door element.

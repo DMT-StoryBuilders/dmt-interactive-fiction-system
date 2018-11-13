@@ -1,4 +1,3 @@
-#include "pch.h"
 #include "writingTools.h"
 
 void displayCreateMenu() {
@@ -15,7 +14,7 @@ void operateCreateMenu(std::vector<Room> &rmList, std::vector<Door> &drList) {
 	std::cin >> choice;
 
 	// As long as the user doesn't choose to go back to the main menu,
-	// allow them to create the corresponding object and 
+	// allow them to create the corresponding object and
 	// then reprompt them afterwards
 	while (choice != 0) {
 		switch (choice) {
@@ -97,7 +96,7 @@ void createDoor(std::vector<Room>& rmList, std::vector<Door>& drList) {
 
 	std::cout << "Second room: ";
 	std::cin >> roomChoice;
-	newDoor.setRoomTwo(rmList[roomChoice - 1]); 
+	newDoor.setRoomTwo(rmList[roomChoice - 1]);
 
 	// Add the door to the end of the door list
 	drList.push_back(newDoor);

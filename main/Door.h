@@ -1,10 +1,10 @@
 #pragma once
 #ifndef DOOR_H
-#define DOOR_H	
+#define DOOR_H
 #include "Room.h"
 
 /* Class that represents a door, path, or any connector of two rooms.
- * 
+ *
  * Data members
  * ______________________________________
  * string name: stores the name of the door
@@ -16,7 +16,7 @@
 class Door {
 public:
 	Door();
-	Door(std::string nm, std::string desc, bool accessible);
+    Door(std::string nm, std::string desc, bool accessible);
 	Door(std::string nm, std::string desc, bool accessible, Room &roomOne, Room &roomTwo);
 	Door(std::string nm, std::string desc, bool accessible, Room *roomOnePointer, Room *roomTwoPointer);
 

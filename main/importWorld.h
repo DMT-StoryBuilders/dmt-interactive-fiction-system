@@ -3,6 +3,7 @@
 #define IMPORTWORLD_H
 #include <iostream>
 #include <string>
+#include <cstring>
 #include "tinyxml2.h"
 #include "Room.h"
 #include "Door.h"
