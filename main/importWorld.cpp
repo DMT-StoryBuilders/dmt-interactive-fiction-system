@@ -114,10 +114,10 @@ void createDoorObjects(tinyxml2::XMLDocument &worldDoc, tinyxml2::XMLNode* wNode
 		// store the address of that room to the corresponding room pointer in the door.
 		for (int i = 0; i < rmList.size(); i++) {
 			if (rmList[i].getName() == roomOneName) {
-				newDoor.setRoomOne(rmList[i]);
+				newDoor.setRoomOne(&rmList[i]);
 			}//end if
 			else if (rmList[i].getName() == roomTwoName) {
-				newDoor.setRoomTwo(rmList[i]);
+				newDoor.setRoomTwo(&rmList[i]);
 			}//end else if
 		}//end for
 

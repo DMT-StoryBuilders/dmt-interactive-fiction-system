@@ -1,4 +1,3 @@
-#pragma once
 #ifndef DOOR_H
 #define DOOR_H
 #include "Room.h"
@@ -24,9 +23,7 @@ public:
 	void setDescription(std::string desc);
 	void setIsAccessible(bool accessible);
 
-	void setRoomOne(Room &roomOne);
 	void setRoomOne(Room *roomOnePointer);
-	void setRoomTwo(Room &roomTwo);
 	void setRoomTwo(Room *roomTwoPointer);
 
 	std::string getName();

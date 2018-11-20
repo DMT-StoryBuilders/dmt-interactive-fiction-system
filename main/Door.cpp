@@ -44,16 +44,8 @@ void Door::setIsAccessible(bool accessible) {
 	isAccessible = accessible;
 }
 
-void Door::setRoomOne(Room &roomOne) {
-	roomOnePtr = &roomOne;
-}
-
 void Door::setRoomOne(Room *roomOnePointer) {
 	roomOnePtr = roomOnePointer;
-}
-
-void Door::setRoomTwo(Room &roomTwo) {
-	roomTwoPtr = &roomTwo;
 }
 
 void Door::setRoomTwo(Room *roomTwoPointer) {

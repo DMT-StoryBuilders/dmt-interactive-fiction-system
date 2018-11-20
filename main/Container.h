@@ -1,4 +1,3 @@
-#pragma once
 #ifndef CONTAINER_H
 #define CONTAINER_H
 #include <string>
@@ -20,6 +19,7 @@ public:
 	Container();
 	Container(std::string nm);
 	Container(std::string nm, std::string desc);
+	Container(std::string nm, std::string desc, bool accessible);
 
 	void setName(std::string nm);
 	void setDescription(std::string desc);
@@ -40,6 +40,7 @@ public:
 private:
 	std::string name;
 	std::string description;
+	bool isAccesible;
 	std::vector<Item*> inventory;
 };
 

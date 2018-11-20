@@ -80,9 +80,6 @@ void ItemTransfer::setRoom2(Room temp)
 	worldRoom2 = temp;
 }
 
-
-
-
 ItemTransfer ItemTransfer::transferItem(string name, Individual individual1, Individual individual2, ItemTransfer temp)
 {
 	i = 0; //declare an index variable

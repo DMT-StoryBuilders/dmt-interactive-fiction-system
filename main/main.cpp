@@ -5,15 +5,18 @@
 #include "tinyxml2.h"
 
 void displayMainMenu();
-void operateMainMenu(std::vector<Room> &rmList, std::vector<Door> &drList);
-std::vector <std::string> actionWordBank;
+void operateMainMenu(std::vector<Room> &rmList, std::vector<Door> &drList, std::vector<Container> &crList, std::vector<Item> &imList);
 
 int main()
 {
 	std::vector<Room> roomList;
 	std::vector<Door> doorList;
+	std::vector<Container> containerList;
+	std::vector<Individual> individualList;
+	std::vector<Item> itemList;
+
     displayMainMenu();
-	operateMainMenu(roomList, doorList);
+	operateMainMenu(roomList, doorList, containerList, itemList);
 
 	return 0;
 }
@@ -30,7 +33,7 @@ void displayMainMenu() {
 }
 
 // Function that allows user to operate the main menu
-void operateMainMenu(std::vector<Room> &rmList, std::vector<Door> &drList) {
+void operateMainMenu(std::vector<Room> &rmList, std::vector<Door> &drList, std::vector<Container> &crList, std::vector<Item> &imList) {
 	int choice;
 	std::cout << "\nWhat would you like to do?: ";
 	std::cin >> choice;
@@ -45,7 +48,7 @@ void operateMainMenu(std::vector<Room> &rmList, std::vector<Door> &drList) {
 			break;
 		case 1:
 			displayCreateMenu();
-			operateCreateMenu(rmList, drList);
+			operateCreateMenu(rmList, drList, crList, imList);
 			break;
 		case 2:
 			loadDocument(rmList, drList);

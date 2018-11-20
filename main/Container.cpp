@@ -3,16 +3,25 @@
 Container::Container() {
 	name = "";
 	description = "";
+	isAccesible = true;
 }
 
 Container::Container(std::string nm) {
 	name = nm;
 	description = "";
+	isAccesible = true;
 }
 
 Container::Container(std::string nm, std::string desc) {
 	name = nm;
 	description = desc;
+	isAccesible = true;
+}
+
+Container::Container(std::string nm, std::string desc, bool accessible) {
+	name = nm;
+	description = desc;
+	isAccesible = accessible;
 }
 
 void Container::setName(std::string nm) {

@@ -24,6 +24,7 @@ void createDocument(std::vector<Room>& rmList, std::vector<Door>& drList) {
 
 	createRoomElements(worldDocument, worldNodePtr, rmList);
 	createDoorElements(worldDocument, worldNodePtr, drList);
+	//createContainerElements(worldDocument, worldNodePtr, crList);
 
 	worldDocument.SaveFile(savePathChars);
 }
