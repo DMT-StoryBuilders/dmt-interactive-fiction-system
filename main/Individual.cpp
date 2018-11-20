@@ -21,6 +21,13 @@ Individual::Individual(std::string nm, Room *roomPtr) {
 	currentRoomPtr = roomPtr;
 }
 
+Individual::Individual(std::string nm, std::string desc, int hp) {
+    name = nm;
+    description = desc;
+    health = hp;
+    currentRoomPtr = NULL;
+}
+
 Individual::Individual(std::string nm, std::string desc, Room *roomPtr) {
 	name = nm;
 	description = desc;

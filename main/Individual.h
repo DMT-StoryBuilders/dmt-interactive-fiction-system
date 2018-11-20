@@ -20,6 +20,7 @@ public:
 	Individual();
 	Individual(std::string nm);
 	Individual(std::string nm, Room *roomPtr);
+	Individual(std::string nm, std::string desc, int hp);
 	Individual(std::string nm, std::string desc, Room *roomPtr);
 	Individual(std::string nm, std::string desc, int hp, Room *roomPtr);
 
@@ -43,7 +44,7 @@ public:
 	void removeItem(int i);
 	void clearItems();
 	void printItems();
-	
+
 	~Individual();
 
 protected:

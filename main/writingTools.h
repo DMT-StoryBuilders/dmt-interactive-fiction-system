@@ -13,7 +13,7 @@
 void displayCreateMenu();
 
 // Function that allows user to operate the creation menu
-void operateCreateMenu(std::vector<Room> &rmList, std::vector<Door> &drList, std::vector<Container> &crList, std::vector<Item> &imList);
+void operateCreateMenu(std::vector<Room> &rmList, std::vector<Door> &drList, std::vector<Container> &crList, std::vector<Individual> &ilList, std::vector<Item> &imList);
 
 /* Function that creates a room based on the information
  * provided by the user. The created room is then added
@@ -32,6 +32,8 @@ void createDoor(std::vector<Room> &rmList, std::vector<Door> &drList);
  * to the end of the container list.
  */
 void createContainer(std::vector<Container> &crList, std::vector<Item> &imList);
+
+void createIndividual(std::vector<Individual> &ilList, std::vector<Room> &rmList, std::vector<Item> &imList);
 
 void createItem(std::vector<Item> &imList);
 #endif

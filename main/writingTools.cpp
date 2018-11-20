@@ -9,9 +9,9 @@ void displayCreateMenu() {
 	std::cout << "4) Individual" << std::endl;
 	std::cout << "5) Item" << std::endl;
 	std::cout << "0) Go Back" << std::endl;
-}//end create menu display
+}// end create menu display
 
-void operateCreateMenu(std::vector<Room> &rmList, std::vector<Door> &drList, std::vector<Container> &crList, std::vector<Item> &imList) {
+void operateCreateMenu(std::vector<Room> &rmList, std::vector<Door> &drList, std::vector<Container> &crList, std::vector<Individual> &ilList, std::vector<Item> &imList) {
 	int choice;
 	std::cout << "\nWhat would you like to create?: ";
 	std::cin >> choice;
@@ -21,16 +21,17 @@ void operateCreateMenu(std::vector<Room> &rmList, std::vector<Door> &drList, std
 	// then reprompt them afterwards
 	while (choice != 0) {
 		switch (choice) {
-			// create room
 			case 1:
 				createRoom(rmList, imList);
 				break;
-			// create door
 			case 2:
 				createDoor(rmList, drList);
 				break;
 			case 3:
 				createContainer(crList, imList);
+				break;
+			case 4:
+				createIndividual(ilList, rmList, imList);
 				break;
 			case 5:
 				createItem(imList);
@@ -65,13 +66,13 @@ void createRoom(std::vector<Room> &rmList, std::vector<Item> &imList) {
 	// Create the room and add it to the end of the room list
 	Room newRoom(name, shortDesc, longDesc);
 
-	//Prompt the user if they would like to added created Items
-	//into the room.
+	// Prompt the user if they would like to added created Items
+	// into the room.
 	std::cout << "\nAdd an item to this room? Yes(1) or No(0): ";
 	std::cin >> userInput;
 
-	//If the user chooses to add items, display the list of every
-	//created item.
+	// If the user chooses to add items, display the list of every
+	// created item.
 	if (userInput == 1) {
 		std::cout << "\nItem List:" << std::endl;
 
@@ -81,21 +82,25 @@ void createRoom(std::vector<Room> &rmList, std::vector<Item> &imList) {
 
 		std::cout << "0) Cancel" << std::endl;
 
-		//Prompt the user to select an item to add.
+		// Prompt the user to select an item to add.
 		std::cout << "\nAdd Item: ";
 		std::cin >> userInput;
 
-		//While the user doesn't enter 0 to cancel,
-		//store the address of the selected item into the room's
-		//inventory and reprompt them to add more.
+		// While the user doesn't enter 0 to cancel,
+		// store the address of the selected item into the room's
+		// inventory and reprompt them to add more.
 		while (userInput != 0) {
 			newRoom.addItem(&imList[userInput - 1]);
+
+			std::cout << "\n" << imList[userInput - 1].getName()
+				<< " has been added to the room." << std::endl;
 
 			std::cout << "\nAdd Item: ";
 			std::cin >> userInput;
 		}
 	}
 
+	// Add the room to the created room list.
 	rmList.push_back(newRoom);
 
 	// Confirm that the room was created and display the number of created rooms
@@ -106,47 +111,56 @@ void createRoom(std::vector<Room> &rmList, std::vector<Item> &imList) {
 void createDoor(std::vector<Room>& rmList, std::vector<Door> &drList) {
 	std::cout << "____________________________________________________" << std::endl;
 	std::cout << "Door Creation" << std::endl;
-	std::string name;
-	std::string desc;
-	bool isAccessible;
 
-	int roomChoice;
+	if (rmList.size() != 0) {
+		std::string name;
+		std::string desc;
+		bool isAccessible;
 
-	std::cout << "\nEnter the name of the door: " << std::endl;
-	std::getline(std::cin, name);
-	std::getline(std::cin, name);
+		int roomChoice;
 
-	std::cout << "\nEnter a description of the door: " << std::endl;
-	std::getline(std::cin, desc);
+		std::cout << "\nEnter the name of the door: " << std::endl;
+		std::getline(std::cin, name);
+		std::getline(std::cin, name);
 
-	std::cout << "\nIs this door accessible? Yes(1) or No(0): ";
-	std::cin >> isAccessible;
+		std::cout << "\nEnter a description of the door: " << std::endl;
+		std::getline(std::cin, desc);
 
-	// Create the Door object
-	Door newDoor(name, desc, isAccessible);
+		std::cout << "\nIs this door accessible? Yes(1) or No(0): ";
+		std::cin >> isAccessible;
 
-	// Display the list of every created room
-	std::cout << "\nRoom List:" << std::endl;
-	for (int i = 0; i < rmList.size(); i++) {
-		std::cout << i + 1 << ") " << rmList[i].getName() << std::endl;
+		// Create the Door object
+		Door newDoor(name, desc, isAccessible);
+
+		// Display the list of every created room
+		std::cout << "\nRoom List:" << std::endl;
+		for (int i = 0; i < rmList.size(); i++) {
+			std::cout << i + 1 << ") " << rmList[i].getName() << std::endl;
+		}
+
+		// Prompt the user to choose the two rooms that will be connected to the door
+		std::cout << "\nEnter the numbers of the two rooms will connect to the door." << std::endl;
+		std::cout << "First room: ";
+		std::cin >> roomChoice;
+		newDoor.setRoomOne(&rmList[roomChoice - 1]);
+
+		std::cout << "Second room: ";
+		std::cin >> roomChoice;
+		newDoor.setRoomTwo(&rmList[roomChoice - 1]);
+
+		// Add the door to the end of the door list
+		drList.push_back(newDoor);
+
+		// Confirm that the door was created and display the number of created doors
+		std::cout << "\nDoor \"" << newDoor.getName() << "\" has been created." << std::endl;
+		std::cout << "Current number of doors: " << drList.size() << std::endl;
 	}
 
-	// Prompt the user to choose the two rooms that will be connected to the door
-	std::cout << "\nEnter the numbers of the two rooms will connect to the door." << std::endl;
-	std::cout << "First room: ";
-	std::cin >> roomChoice;
-	newDoor.setRoomOne(&rmList[roomChoice - 1]);
-
-	std::cout << "Second room: ";
-	std::cin >> roomChoice;
-	newDoor.setRoomTwo(&rmList[roomChoice - 1]);
-
-	// Add the door to the end of the door list
-	drList.push_back(newDoor);
-
-	// Confirm that the door was created and display the number of created doors
-	std::cout << "\nDoor \"" << newDoor.getName() << "\" has been created." << std::endl;
-	std::cout << "Current number of doors: " << drList.size() << std::endl;
+	// If the room list is empty, display a message saying so.
+	else {
+		std::cout << "\nSorry, no room has been created yet. "
+			<< "Please create one before creating a door." << std::endl;
+	}
 }
 
 void createContainer(std::vector<Container> &crList, std::vector<Item> &imList) {
@@ -196,6 +210,9 @@ void createContainer(std::vector<Container> &crList, std::vector<Item> &imList) 
 		while (userInput != 0) {
 			newContainer.addItem(&imList[userInput - 1]);
 
+			std::cout << "\n" << imList[userInput - 1].getName()
+				<< " has been added to the container." << std::endl;
+
 			std::cout << "\nAdd Item: ";
 			std::cin >> userInput;
 		}
@@ -208,6 +225,91 @@ void createContainer(std::vector<Container> &crList, std::vector<Item> &imList) 
 	// Confirm that the container was created and display the number of created containers
 	std::cout << "\nContainer \"" << newContainer.getName() << "\" has been created." << std::endl;
 	std::cout << "Number of Containers: " << crList.size() << std::endl;
+}
+
+void createIndividual(std::vector<Individual> &ilList, std::vector<Room> &rmList, std::vector<Item> &imList){
+	std::cout << "____________________________________________________" << std::endl;
+	std::cout << "Individual Creation" << std::endl;
+
+	if (rmList.size() != 0) {
+			std::string name;
+			std::string desc;
+			int health;
+			int userInput;
+
+			std::cout << "\nEnter the name of the individual: " << std::endl;
+			std::getline(std::cin, name);
+			std::getline(std::cin, name);
+
+			std::cout << "\nEnter a description of the individual: " << std::endl;
+			std::getline(std::cin, desc);
+
+			std::cout << "\nEnter the starting health of the individual: " << std::endl;
+			std::cin >> health;
+
+			Individual newIndividual(name, desc, health);
+
+			// Display the list of every created room
+			std::cout << "\nRoom List:" << std::endl;
+			for (int i = 0; i < rmList.size(); i++) {
+				std::cout << i + 1 << ") " << rmList[i].getName() << std::endl;
+			}
+
+			// Prompt the user to enter the starting point for the individual
+			// and set their current room to that room.
+			std::cout << "\nSelect the individual's starting room." << std::endl;
+			std::cout << "Room: ";
+			std::cin >> userInput;
+			newIndividual.setCurrentRoom(&rmList[userInput - 1]);
+
+			//Prompt the user if they would like to added created Items
+			//into the individual's inventory.
+			std::cout << "\nAdd an item to this individual's inventory? Yes(1) or No(0): ";
+			std::cin >> userInput;
+
+			//If the user chooses to add items, display the list of every
+			//created item.
+			if (userInput == 1) {
+				std::cout << "\nItem List:" << std::endl;
+
+				for (int i = 0; i < imList.size(); i++) {
+					std::cout << i + 1 << ") " << imList[i].getName() << std::endl;
+				}
+
+				std::cout << "0) Cancel" << std::endl;
+
+				//Prompt the user to select an item to add.
+				std::cout << "\nAdd Item: ";
+				std::cin >> userInput;
+
+				//While the user doesn't enter 0 to cancel,
+				//store the address of the selected item into the container's
+				//inventory and reprompt them to add more.
+				while (userInput != 0) {
+					newIndividual.addItem(&imList[userInput - 1]);
+
+					std::cout << "\n" << imList[userInput - 1].getName()
+						<< " has been added to the individual's inventory." << std::endl;
+
+					std::cout << "\nAdd Item: ";
+					std::cin >> userInput;
+				}
+			}
+
+			//Once the user finished the container creation, add it to the end
+			//of the created containers list.
+			ilList.push_back(newIndividual);
+
+			// Confirm that the container was created and display the number of created containers
+			std::cout << "\nIndividual \"" << newIndividual.getName() << "\" has been created." << std::endl;
+			std::cout << "Number of Individuals: " << ilList.size() << std::endl;
+	}
+
+	// If the room list is empty, display a message saying so.
+	else {
+		std::cout << "\nSorry, no room has been created yet. "
+			<< "Please create one before creating an individual." << std::endl;
+	}
 }
 
 void createItem(std::vector<Item> &imList) {
