@@ -15,6 +15,6 @@ A creation tool for crafting interactive fiction with support for a scripting en
 
 4. Navigate to the directory containing the executable file and run it. 
 
-> cd C:\Users\username\Programs\dmt-interactive-fiction-system
+> cd C:\Users\username\Programs\
 
 > dmt-interactive-fiction-system.exe
