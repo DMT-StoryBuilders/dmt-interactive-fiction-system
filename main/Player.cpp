@@ -1,4 +1,3 @@
-#include "pch.h"
 #include "Player.h"
 
 
@@ -14,7 +13,7 @@ Player::Player(std::string nm, std::string desc, Room * roomPtr) : Individual(nm
 Player::Player(std::string nm, std::string desc, int hp, Room * roomPtr) : Individual(nm, desc, hp, roomPtr) {
 }
 
-/* 
+/*
  * First, the function checks if the door is accessible.
  * If the door is accessible, compare the player's current room address with
  * the two addresses of rooms connected to the door.

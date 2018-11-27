@@ -1,4 +1,3 @@
-#include "pch.h"
 #include "importWorld.h"
 
 void loadDocument(std::vector<Room>& rmList, std::vector<Door>& drList) {
@@ -6,9 +5,8 @@ void loadDocument(std::vector<Room>& rmList, std::vector<Door>& drList) {
 
 	std::cout << "____________________________________________________" << std::endl;
 	std::cout << "World Import" << std::endl;
-	std::cout << "\nEnter a path for the save location. Window Users, please include an extra backslash for every backslash in the path.\n"
-		<< "\nEx) The following input\nC:\\\\Users\\\\Username\\\\Documents\\\\mySavedWorld.xml"
-		<< "\nwill be read as\nC:\\Users\\Username\\Documents\\mySavedWorld.xml"
+	std::cout << "\nEnter a path for the save location.\n"
+		<< "\nWindows Ex) C:\\Users\\Username\\Documents\\mySavedWorld.xml"
 		<< "\n\nPath: ";
 
 	std::cin >> savePath;
@@ -18,7 +16,7 @@ void loadDocument(std::vector<Room>& rmList, std::vector<Door>& drList) {
 	 * the contents of the string must be stored in a char array.
 	 */
 	char savePathChars[80];
-	strcpy_s(savePathChars, savePath.c_str());
+	strcpy(savePathChars, savePath.c_str());
 
 	tinyxml2::XMLDocument worldDocument;
 	worldDocument.LoadFile(savePathChars);
@@ -38,7 +36,7 @@ void createRoomObjects(tinyxml2::XMLDocument &worldDoc, tinyxml2::XMLNode* wNode
 
 	// Loop that runs as long as there are still unprocessed room elements in the document.
 	while (roomElementPtr != nullptr) {
-		
+
 		// Have the data element pointer find the name element.
 		// Once found, store the contents of the name element in a string variable.
 		dataElementPtr = roomElementPtr->FirstChildElement("name");
@@ -72,7 +70,7 @@ void createDoorObjects(tinyxml2::XMLDocument &worldDoc, tinyxml2::XMLNode* wNode
 	tinyxml2::XMLElement* dataElementPtr;
 	const char* dataChars;
 	bool dataBool;
-	
+
 	doorElementPtr = wNodePtr->FirstChildElement("door");
 
 	while (doorElementPtr != nullptr) {
@@ -112,17 +110,17 @@ void createDoorObjects(tinyxml2::XMLDocument &worldDoc, tinyxml2::XMLNode* wNode
 		// Loop that searches through the list of created rooms
 		// and find the rooms are to be connected to the door.
 		//
-		// If the current room's name matches with one of the door's room names, 
+		// If the current room's name matches with one of the door's room names,
 		// store the address of that room to the corresponding room pointer in the door.
 		for (int i = 0; i < rmList.size(); i++) {
 			if (rmList[i].getName() == roomOneName) {
-				newDoor.setRoomOne(rmList[i]);
+				newDoor.setRoomOne(&rmList[i]);
 			}//end if
 			else if (rmList[i].getName() == roomTwoName) {
-				newDoor.setRoomTwo(rmList[i]);
+				newDoor.setRoomTwo(&rmList[i]);
 			}//end else if
 		}//end for
-		
+
 		// Add the door to the door list.
 		drList.push_back(newDoor);
 

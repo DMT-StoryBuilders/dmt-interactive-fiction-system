@@ -1,9 +1,13 @@
-#include "pch.h"
 #include "Room.h"
-
 
 Room::Room() {
 	name = "";
+	longDescription = "";
+	shortDesecription = "";
+}
+
+Room::Room(std::string nm) {
+	name = nm;
 	longDescription = "";
 	shortDesecription = "";
 }
@@ -36,6 +40,43 @@ std::string Room::getShortDescription() {
 
 std::string Room::getLongDescription() {
 	return longDescription;
+}
+
+int Room::getInventorySize() {
+	return inventory.size();
+}
+
+Item* Room::getItem(int i) {
+	return(inventory[i]);
+}
+
+void Room::addItem(Item* item) {
+	inventory.push_back(item);
+}
+
+void Room::removeItem(int i) {
+	inventory.erase(inventory.begin() + i);
+}
+
+void Room::clearItems() {
+	for (i = 0; i < inventory.size(); i++) {
+		inventory.erase(inventory.begin() + i);
+	}
+}
+
+void Room::printItems() {
+	std::cout << "\n";
+	if (inventory.size() == 0)	{
+		std::cout << "There is nothing in the " << name << "\n";
+	}
+
+	else {
+		std::cout << "Inside the " << name << " is:\n";
+
+		for (i = 0; i < inventory.size(); i++) {
+			std::cout << inventory[i]->getName() << "\n";
+		}
+	}
 }
 
 Room::~Room() {

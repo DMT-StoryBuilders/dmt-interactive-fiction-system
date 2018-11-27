@@ -1,11 +1,10 @@
-#pragma once
 #ifndef ITEM_H
-#define ITEM_H	
+#define ITEM_H
 #include <string>
 
 /* Class that represents an item.
  * Ex) Key, lockpicks, sword, note, etc.
- * 
+ *
  * Data members
  * ________________________________________
  * string name: stores the name of the item
@@ -18,17 +17,14 @@ public:
 	Item();
 	Item(std::string nm, std::string desc);
 	Item(std::string nm, std::string shortDesc, std::string longDesc);
-	Item(std::string nm, std::string shortDesc, std::string longDesc, int hp);
-	
+
 	void setName(std::string nm);
 	void setShortDescription(std::string shortDesc);
 	void setLongDescription(std::string longDesc);
-	void setDurability(int hp);
 
 	std::string getName();
 	std::string getShortDescription();
 	std::string getLongDescription();
-	int getDurability();
 
 	~Item();
 
@@ -36,6 +32,5 @@ private:
 	std::string name;
 	std::string shortDescription;
 	std::string longDescription;
-	int durability;
 };
 #endif

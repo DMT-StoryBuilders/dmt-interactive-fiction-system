@@ -1,11 +1,16 @@
-#include "pch.h"
 #include "Individual.h"
 
-
 Individual::Individual() {
-	name = "";
+    name = "";
 	description = "";
-	health = 0;
+	health = 100;
+	currentRoomPtr = NULL;
+}
+
+Individual::Individual(std::string nm) {
+	name = nm;
+	description = "";
+	health = 100;
 	currentRoomPtr = NULL;
 }
 
@@ -14,6 +19,13 @@ Individual::Individual(std::string nm, Room *roomPtr) {
 	description = "";
 	health = 100;
 	currentRoomPtr = roomPtr;
+}
+
+Individual::Individual(std::string nm, std::string desc, int hp) {
+    name = nm;
+    description = desc;
+    health = hp;
+    currentRoomPtr = NULL;
 }
 
 Individual::Individual(std::string nm, std::string desc, Room *roomPtr) {
@@ -63,6 +75,44 @@ int Individual::getHealth() {
 
 Room* Individual::getCurrentRoom() {
 	return currentRoomPtr;
+}
+
+int Individual::getInventorySize()
+{
+	return(inventory.size());
+}
+
+Item* Individual::getItem(int i) {
+	return(inventory[i]);
+}
+
+void Individual::removeItem(int i) {
+	inventory.erase(inventory.begin() + i);
+}
+
+void Individual::clearItems() {
+	for (i = 0; i < inventory.size(); i++) {
+		inventory.erase(inventory.begin() + i);
+	}
+}
+
+void Individual::addItem(Item* item) {
+	inventory.push_back(item);
+}
+
+void Individual::printItems() {
+	std::cout << "\n";
+
+	if (inventory.size() == 0) {
+		std::cout << "There is nothing on the " << name << "\n";
+	}
+
+	else {
+		std::cout << "On the " << name << " is:\n";
+		for (i = 0; i < inventory.size(); i++) {
+			std::cout << inventory[i]->getName() << "\n";
+		}
+	}
 }
 
 Individual::~Individual() {
