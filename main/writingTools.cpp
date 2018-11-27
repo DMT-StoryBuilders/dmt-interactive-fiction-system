@@ -18,7 +18,7 @@ void operateCreateMenu(std::vector<Room> &rmList, std::vector<Door> &drList, std
 
 	// As long as the user doesn't choose to go back to the main menu,
 	// allow them to create the corresponding object and
-	// then reprompt them afterwards
+	// then reprompt them after creation.
 	while (choice != 0) {
 		switch (choice) {
 			case 1:
@@ -97,8 +97,8 @@ void createRoom(std::vector<Room> &rmList, std::vector<Item> &imList) {
 
 			std::cout << "\nAdd Item: ";
 			std::cin >> userInput;
-		}
-	}
+		}// end while userInput
+	}// end if userInput
 
 	// Add the room to the created room list.
 	rmList.push_back(newRoom);
@@ -112,6 +112,8 @@ void createDoor(std::vector<Room>& rmList, std::vector<Door> &drList) {
 	std::cout << "____________________________________________________" << std::endl;
 	std::cout << "Door Creation" << std::endl;
 
+	// If at least one room has been created, allow for the creation of
+	// a door.
 	if (rmList.size() != 0) {
 		std::string name;
 		std::string desc;
@@ -154,13 +156,13 @@ void createDoor(std::vector<Room>& rmList, std::vector<Door> &drList) {
 		// Confirm that the door was created and display the number of created doors
 		std::cout << "\nDoor \"" << newDoor.getName() << "\" has been created." << std::endl;
 		std::cout << "Current number of doors: " << drList.size() << std::endl;
-	}
+	}// end if roomList size
 
 	// If the room list is empty, display a message saying so.
 	else {
 		std::cout << "\nSorry, no room has been created yet. "
 			<< "Please create one before creating a door." << std::endl;
-	}
+	}// end else
 }
 
 void createContainer(std::vector<Container> &crList, std::vector<Item> &imList) {
@@ -182,6 +184,7 @@ void createContainer(std::vector<Container> &crList, std::vector<Item> &imList) 
 	std::cout << "\nIs this container accessible? Yes(1) or No(0): ";
 	std::cin >> isAccessible;
 
+	// Create a container based on the current given information.
 	Container newContainer(name, desc, isAccessible);
 
 	//Prompt the user if they would like to added created Items
@@ -215,8 +218,8 @@ void createContainer(std::vector<Container> &crList, std::vector<Item> &imList) 
 
 			std::cout << "\nAdd Item: ";
 			std::cin >> userInput;
-		}
-	}
+		}// end while userInput
+	}// end if userInput
 
 	//Once the user finished the container creation, add it to the end
 	//of the created containers list.
@@ -231,6 +234,8 @@ void createIndividual(std::vector<Individual> &ilList, std::vector<Room> &rmList
 	std::cout << "____________________________________________________" << std::endl;
 	std::cout << "Individual Creation" << std::endl;
 
+	// If at least one room has been created, allow for the creation of
+	// an individual.
 	if (rmList.size() != 0) {
 			std::string name;
 			std::string desc;
@@ -247,6 +252,7 @@ void createIndividual(std::vector<Individual> &ilList, std::vector<Room> &rmList
 			std::cout << "\nEnter the starting health of the individual: " << std::endl;
 			std::cin >> health;
 
+			// Create a new Individual based on the current given information.
 			Individual newIndividual(name, desc, health);
 
 			// Display the list of every created room
@@ -267,8 +273,8 @@ void createIndividual(std::vector<Individual> &ilList, std::vector<Room> &rmList
 			std::cout << "\nAdd an item to this individual's inventory? Yes(1) or No(0): ";
 			std::cin >> userInput;
 
-			//If the user chooses to add items, display the list of every
-			//created item.
+			// If the user chooses to add items, display the list of every
+			// created item and allow them to select which ones to add.
 			if (userInput == 1) {
 				std::cout << "\nItem List:" << std::endl;
 
@@ -293,23 +299,23 @@ void createIndividual(std::vector<Individual> &ilList, std::vector<Room> &rmList
 
 					std::cout << "\nAdd Item: ";
 					std::cin >> userInput;
-				}
-			}
+				}// end while
+			}// end if userInput
 
-			//Once the user finished the container creation, add it to the end
-			//of the created containers list.
+			// Once the user finished the container creation, add it to the end
+			// of the created containers list.
 			ilList.push_back(newIndividual);
 
 			// Confirm that the container was created and display the number of created containers
 			std::cout << "\nIndividual \"" << newIndividual.getName() << "\" has been created." << std::endl;
 			std::cout << "Number of Individuals: " << ilList.size() << std::endl;
-	}
+	}// end if roomList size
 
 	// If the room list is empty, display a message saying so.
 	else {
 		std::cout << "\nSorry, no room has been created yet. "
 			<< "Please create one before creating an individual." << std::endl;
-	}
+	}// end else
 }
 
 void createItem(std::vector<Item> &imList) {
