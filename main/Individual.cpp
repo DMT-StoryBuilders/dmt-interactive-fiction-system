@@ -86,12 +86,16 @@ Item* Individual::getItem(int i) {
 	return(inventory[i]);
 }
 
+std::string Individual::getItemName(int index) {
+    return inventory[index]->getName();
+}
+
 void Individual::removeItem(int i) {
 	inventory.erase(inventory.begin() + i);
 }
 
 void Individual::clearItems() {
-	for (i = 0; i < inventory.size(); i++) {
+	for (int i = 0; i < inventory.size(); i++) {
 		inventory.erase(inventory.begin() + i);
 	}
 }
@@ -109,7 +113,7 @@ void Individual::printItems() {
 
 	else {
 		std::cout << "On the " << name << " is:\n";
-		for (i = 0; i < inventory.size(); i++) {
+		for (int i = 0; i < inventory.size(); i++) {
 			std::cout << inventory[i]->getName() << "\n";
 		}
 	}

@@ -4,6 +4,7 @@
 #include <vector>
 #include <iostream>
 #include "Item.h"
+#include "Room.h"
 
 /* Class that represents a container.
  * Ex) Chest, bookcase, closet, shoebox, etc.
@@ -20,15 +21,23 @@ public:
 	Container(std::string nm);
 	Container(std::string nm, std::string desc);
 	Container(std::string nm, std::string desc, bool accessible);
+	Container(std::string nm, std::string desc, bool accessible, Room* roomPtr);
+	Container(std::string nm, std::string desc, bool accessible, Room &room);
 
 	void setName(std::string nm);
 	void setDescription(std::string desc);
+	void setIsAccessible(bool accessible);
+	void setCurrentRoom(Room *roomPtr);
+	void setCurrentRoom(Room &room);
 
 	std::string getName();
 	std::string getDescription();
-	Item* getItem(int i);
+	bool getIsAccessible();
+	Room* getCurrentRoom();
+
 	int getInventorySize();
-	unsigned int i;
+	Item* getItem(int i);
+	std::string getItemName(int index);
 
 	void addItem(Item* item);
 	void removeItem(int i);
@@ -41,6 +50,7 @@ private:
 	std::string name;
 	std::string description;
 	bool isAccesible;
+	Room* currentRoomPtr;
 	std::vector<Item*> inventory;
 };
 

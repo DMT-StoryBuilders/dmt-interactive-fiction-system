@@ -53,7 +53,7 @@ void operateMainMenu(std::vector<Room> &rmList, std::vector<Door> &drList, std::
 			loadDocument(rmList, drList);
 			break;
 		case 3:
-			createDocument(rmList, drList);
+			createDocument(rmList, drList, crList, ilList, imList);
 			break;
 		}
 

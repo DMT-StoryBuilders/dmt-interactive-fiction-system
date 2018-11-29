@@ -46,6 +46,10 @@ int Room::getInventorySize() {
 	return inventory.size();
 }
 
+std::string Room::getItemName(int index) {
+	return inventory[index]->getName();
+}
+
 Item* Room::getItem(int i) {
 	return(inventory[i]);
 }
@@ -59,7 +63,7 @@ void Room::removeItem(int i) {
 }
 
 void Room::clearItems() {
-	for (i = 0; i < inventory.size(); i++) {
+	for (int i = 0; i < inventory.size(); i++) {
 		inventory.erase(inventory.begin() + i);
 	}
 }
@@ -73,7 +77,7 @@ void Room::printItems() {
 	else {
 		std::cout << "Inside the " << name << " is:\n";
 
-		for (i = 0; i < inventory.size(); i++) {
+		for (int i = 0; i < inventory.size(); i++) {
 			std::cout << inventory[i]->getName() << "\n";
 		}
 	}

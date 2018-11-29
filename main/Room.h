@@ -20,8 +20,6 @@ public:
 	Room(std::string nm);
 	Room(std::string nm, std::string shortDesc, std::string longDesc);
 
-	unsigned int i;
-
 	void setName(std::string nm);
 	void setShortDescription(std::string shortDesc);
 	void setLongDescription(std::string longDesc);
@@ -30,6 +28,7 @@ public:
 	std::string getShortDescription();
 	std::string getLongDescription();
 	int getInventorySize();
+	std::string getItemName(int index);
 	Item* getItem(int i);
 
 	void addItem(Item* item);

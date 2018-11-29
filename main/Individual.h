@@ -30,14 +30,13 @@ public:
 	void setCurrentRoom(Room &room);
 	void setCurrentRoom(Room *roomPtr);
 
-	unsigned int i;
-
 	std::string getName();
 	std::string getDescription();
 	int getHealth();
 	Room* getCurrentRoom();
 	int getInventorySize();
 	Item* getItem(int i);
+	std::string getItemName(int index);
 
 	void addHealth(int i);
 	void addItem(Item* item);
