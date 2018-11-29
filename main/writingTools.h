@@ -38,12 +38,15 @@ void createDoor(std::vector<Room> &rmList, std::vector<Door> &drList);
 /* Interactive function that creates a container based on the information
  * provided by the user.
  *
+ * A vector of rooms is passed by reference so the Container can store the
+ * address of room that it will be located in.
+ *
  * A vector of items is passed by reference in case the writer would like
  * to add items into the container.
  *
  * The created container is then added to the end of the container list.
  */
-void createContainer(std::vector<Container> &crList, std::vector<Item> &imList);
+void createContainer(std::vector<Container> &crList, std::vector<Room> &rmList, std::vector<Item> &imList);
 
 /* Interactive function that creates an individual based on the information
  * provided by the user.
