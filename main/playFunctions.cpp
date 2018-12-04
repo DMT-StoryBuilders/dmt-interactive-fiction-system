@@ -1,7 +1,7 @@
 #include "playFunctions.h"
 #include "stringReader.h"
 
-void startGame(std::vector<Room> &rmList, std::vector<Door> &drList) {
+void startGame(std::vector<Room> &rmList, std::vector<Door> &drList, std::vector<Container> &crList, std::vector<Individual> &ilList, std::vector<Item> &imList) {
 	std::string action;
 
 	Player player; //creates the player

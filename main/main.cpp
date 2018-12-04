@@ -50,7 +50,7 @@ void operateMainMenu(std::vector<Room> &rmList, std::vector<Door> &drList, std::
 			operateCreateMenu(rmList, drList, crList, ilList, imList);
 			break;
 		case 2:
-			loadDocument(rmList, drList);
+			loadDocument(rmList, drList, crList, ilList, imList);
 			break;
 		case 3:
 			createDocument(rmList, drList, crList, ilList, imList);
@@ -63,6 +63,6 @@ void operateMainMenu(std::vector<Room> &rmList, std::vector<Door> &drList, std::
 	}
 
 	if (choice == 4) {
-		startGame(rmList, drList);
+		startGame(rmList, drList, crList, ilList, imList);
 	}
 }
