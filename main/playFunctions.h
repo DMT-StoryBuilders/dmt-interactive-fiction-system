@@ -7,8 +7,10 @@
 #include "Player.h"
 #include "Room.h"
 #include "Door.h"
+#include "Container.h"
+#include "Item.h"
 
-void startGame(std::vector<Room> &rmList, std::vector<Door> &drList);
+void startGame(std::vector<Room> &rmList, std::vector<Door> &drList, std::vector<Container> &crList, std::vector<Individual> &ilList, std::vector<Item> &imList);
 
 /*
 void playerUse(Player &player, std::vector<Door> &drList);
