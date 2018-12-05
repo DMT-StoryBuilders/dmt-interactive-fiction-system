@@ -9,8 +9,8 @@ void startGame(std::vector<Room> &rmList, std::vector<Door> &drList, std::vector
 	player.setCurrentRoom(&rmList[0]);
 
 	std::cout << "____________________________________________________" << std::endl;
-	std::cout << player.getCurrentRoom()->getName() << std::endl; // Usinig pointers display the player room
-	std::cout << player.getCurrentRoom()->getShortDescription() << std::endl; // Usinig pointers display the player room
+	std::cout << player.getCurrentRoom()->getName() << std::endl;
+	std::cout << player.getCurrentRoom()->getShortDescription() << std::endl;
 
 	std::cout << std::endl;
 	std::cout << "> ";

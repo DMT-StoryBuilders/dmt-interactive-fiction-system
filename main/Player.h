@@ -2,6 +2,7 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 #include <iostream>
+#include <algorithm>
 #include "Individual.h"
 #include "Door.h"
 #include "Item.h"
@@ -31,6 +32,9 @@ public:
 	void examine(Door *doorPtr);
 	void examine(Room *roomPtr);
 	void examine(Item *itemPtr);
+
+	void pickup(std::string itemName);
+	void drop(std::string itemName);
 
 	~Player();
 };
