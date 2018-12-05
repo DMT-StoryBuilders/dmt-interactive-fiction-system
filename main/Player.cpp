@@ -56,5 +56,49 @@ void Player::examine(Item *itemPtr) {
 	std::cout << "\n" << itemPtr->getLongDescription() << std::endl;
 }
 
+void Player::pickup(std::string itemName) {
+
+	// Capitalize every letter in the item argument
+	std::transform(itemName.begin(), itemName.end(), itemName.begin(), ::toupper);
+
+	// For loop that goes through the current room's inventory.
+	// Capitalize the current item's name and compare it to the name of the item
+	// that we're searching for.
+	// If both names are the same, add the item to the player's inventory, and
+	// remove it from the current's inventory.
+	for (int i = 0; i < getCurrentRoom()->getInventorySize(); i++) {
+
+		std::string roomItemName = getCurrentRoom()->getItemName(i);
+		std::transform(roomItemName.begin(), roomItemName.end(), roomItemName.begin(), ::toupper);
+
+		if (roomItemName == itemName) {
+			addItem(getCurrentRoom()->getItem(i));
+			getCurrentRoom()->removeItem(i);
+		}// end if
+	}// end for
+}// end drop
+
+void Player::drop(std::string itemName) {
+
+	// Capitalize every letter in the item argument
+	std::transform(itemName.begin(), itemName.end(), itemName.begin(), ::toupper);
+
+	// For loop that goes through the player's inventory.
+	// Capitalize the current item's name and compare it to the name of the item
+	// that we're searching for.
+	// If both names are the same, add the item to the room's inventory, and
+	// remove it from the player's inventory.
+	for (int i = 0; i < getInventorySize(); i++) {
+
+		std::string playerItemName = inventory[i]->getName();
+		std::transform(playerItemName.begin(), playerItemName.end(), playerItemName.begin(), ::toupper);
+
+		if (playerItemName == itemName) {
+			getCurrentRoom()->addItem(inventory[i]);
+			inventory.erase(inventory.begin() + i);
+		}// end if
+	}// end for
+}// end drop
+
 Player::~Player() {
 }
