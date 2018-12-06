@@ -18,3 +18,21 @@ A creation tool for crafting interactive fiction with support for a scripting en
 > cd C:\Users\username\Programs\
 
 > dmt-interactive-fiction-system.exe
+
+# How To Run on Linux
+1. Download/clone a copy of the repository.
+
+
+2. The "main" folder contains every source and header files. Navigate into this directory.
+
+
+3. Build the program using the GNU G++ compiler.
+
+> g++ *.cpp -o /home/username/dmt-interactive-fiction-system
+
+
+4. Navigate to the directory containing the executable file and run it. 
+
+> cd /home/username/
+
+> ./dmt-interactive-fiction-system.exe
